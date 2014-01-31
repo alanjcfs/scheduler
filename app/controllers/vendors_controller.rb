@@ -2,8 +2,12 @@ class VendorsController < ApplicationController
   respond_to :json
 
   def create
-    @vendor = Vendor.create(permitted_params)
-    redirect_to vendor_path(@vendor)
+    @vendor = Vendor.new(permitted_params)
+    if @vendor.save
+      render json: @vendor
+    else
+      render json: { errors: @vendor.errors.full_messages }, status: 422
+    end
   end
 
   def show

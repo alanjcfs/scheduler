@@ -6,7 +6,8 @@ class VendorsControllerTest < ActionController::TestCase
       post :create, vendor: { name: "Joe the Surf Instructor" }
     end
 
-    assert_redirected_to vendor_path(assigns(:vendor))
+    assert_response :success
+    assert assigns(:vendor)
   end
 
   test "get vendor#show" do
