@@ -33,6 +33,10 @@ group :doc do
 end
 
 gem 'active_model_serializers'
+group :test do
+  gem 'guard-minitest'
+  gem 'minitest-spec-rails'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
