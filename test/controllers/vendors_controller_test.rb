@@ -8,4 +8,11 @@ class VendorsControllerTest < ActionController::TestCase
 
     assert_redirected_to vendor_path(assigns(:vendor))
   end
+
+  test "get vendor#show" do
+    get :show, {format: :json, id: vendors(:one).id}
+    body = JSON.parse(response.body)
+    assert body['id'] == vendors(:one).id
+    assert_response :success
+  end
 end
