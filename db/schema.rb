@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20140131205512) do
     t.datetime "updated_at"
   end
 
-  create_table "activity_vendors", id: false, force: true do |t|
-    t.integer "activity_id"
-    t.integer "vendor_id"
+  create_table "activity_vendors", force: true do |t|
+    t.integer  "activity_id"
+    t.integer  "vendor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "activity_vendors", ["activity_id", "vendor_id"], name: "index_activity_vendors_on_activity_id_and_vendor_id"
