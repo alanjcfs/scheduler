@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140131205512) do
     t.time     "time_start"
     t.time     "time_end"
     t.integer  "quantity"
-    t.integer  "amount_sold"
+    t.integer  "activity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
