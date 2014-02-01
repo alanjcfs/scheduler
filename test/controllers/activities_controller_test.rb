@@ -14,4 +14,9 @@ class ActivitiesControllerTest < ActionController::TestCase
       post :create, activity: {}
     end
   end
+
+  test "obtaining a list of activities" do
+    get :index, date_start: Date.parse("2014-01-01"), date_end: Date.parse("2014-01-31")
+    assert assigns(:activities)
+  end
 end

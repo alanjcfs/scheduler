@@ -10,6 +10,11 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def index
+    @activities = Activity.list_of_activities(params.permit(:date_start, :date_end))
+    render json: @activities
+  end
+
   private
   def permitted_params
     params.require(:activity).permit(:name)
