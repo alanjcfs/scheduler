@@ -2,10 +2,10 @@ Scheduler::Application.routes.draw do
   resources :vendors
 
   concern :schedulable do
-    resources :schedules
+    resources :schedules, only: [:index, :show]
   end
 
-  resources :activities, concerns: :schedulable
+  resources :activities, concerns: :schedulable, shallow: true
 
   root to: 'vendors#index'
 
