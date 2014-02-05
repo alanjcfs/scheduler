@@ -5,6 +5,7 @@ class CreateSchedules < ActiveRecord::Migration
       t.time :time_start
       t.time :time_end
       t.integer :quantity
+      t.integer :reserved
       t.references :activity
 
       t.timestamps

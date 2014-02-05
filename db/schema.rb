@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140203202919) do
     t.time     "time_start"
     t.time     "time_end"
     t.integer  "quantity"
+    t.integer  "reserved"
     t.integer  "activity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
