@@ -7,6 +7,8 @@ Scheduler::Application.routes.draw do
 
   resources :activities, concerns: :schedulable, shallow: true
 
+  resources :bookings, only: [:create]
+
   root to: 'vendors#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
