@@ -1,7 +1,11 @@
 Scheduler::Application.routes.draw do
   resources :vendors
 
-  resources :activities
+  concern :schedulable do
+    resources :schedules
+  end
+
+  resources :activities, concerns: :schedulable
 
   root to: 'vendors#index'
 
