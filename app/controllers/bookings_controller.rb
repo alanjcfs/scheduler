@@ -1,13 +1,22 @@
 class BookingsController < ApplicationController
   respond_to :json
-  def create
-    @booking = Booking.new(params.permit(:booking))
-    @booking.travelers.build(params.require(:travelers))
 
-    if @booking.save
-      render json: @booking
+  def create
+    @schedule_booker = ScheduleBooker.new(permitted_booking, permitted_travelers)
+
+    if @schedule_booker.save
+      render json: @schedule_booker.booking
     else
-      render json: @booking.errors.full_messages
+      render json: @schedule_booker.booking.errors.full_messages
     end
+  end
+
+  private
+  def permitted_booking
+    params.require(:booking).permit(:schedule_id)
+  end
+
+  def permitted_travelers
+    params.require(:travelers)
   end
 end

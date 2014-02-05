@@ -17,7 +17,7 @@ class BookingTest < ActiveSupport::TestCase
 
   describe "creating a booking with travelers" do
     test "booking can be created with travelers" do
-      booking = Booking.new(schedule_id: schedules(:surfing))
+      booking = Booking.new(schedule_id: schedules(:surfing).id)
       booking.travelers.build(name: "Johnny")
       assert booking.save, "Booking should save with a schedule and name of traveler set"
     end

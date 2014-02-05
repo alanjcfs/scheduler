@@ -9,7 +9,7 @@ class BookingsControllerTest < ActionController::TestCase
 
     test "the response of the booking" do
       assert_response :success
-      assert assigns(:booking)
+      assert assigns(:schedule_booker)
       json = JSON.parse(response.body)
       json["booking"].wont_be_empty
       json["booking"]["travelers"].wont_be_empty
