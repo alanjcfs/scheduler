@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131205512) do
+ActiveRecord::Schema.define(version: 20140203202919) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -28,12 +28,25 @@ ActiveRecord::Schema.define(version: 20140131205512) do
 
   add_index "activity_vendors", ["activity_id", "vendor_id"], name: "index_activity_vendors_on_activity_id_and_vendor_id"
 
+  create_table "bookings", force: true do |t|
+    t.integer  "schedule_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "schedules", force: true do |t|
     t.date     "date"
     t.time     "time_start"
     t.time     "time_end"
     t.integer  "quantity"
     t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "travelers", force: true do |t|
+    t.integer  "booking_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

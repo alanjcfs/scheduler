@@ -4,13 +4,13 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-surfing_schedule:
+surfing:
   date: Date.parse("2014-01-15")
   time_start: Time.parse("12:00:00")
   time_end: Time.parse("12:00:00")
   quantity: 8
   activity_id: vendors(:joe)
-snowboarding_schedule:
+snowboarding:
   date: Date.parse("2014-01-14")
   time_start: Time.parse("16:00:00")
   time_end: Time.parse("18:00:00")
