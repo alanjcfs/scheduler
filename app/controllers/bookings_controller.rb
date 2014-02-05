@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   respond_to :json
   def create
     @booking = Booking.new(params.permit(:booking))
-    @booking.travelers.build(params.permit(:travelers => []))
+    @booking.travelers.build(params.require(:travelers))
 
     if @booking.save
       render json: @booking
