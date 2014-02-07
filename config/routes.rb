@@ -9,6 +9,14 @@ Scheduler::Application.routes.draw do
 
   resources :bookings, only: [:create]
 
+  namespace :admin do
+    resources :schedules, only: :none do
+      member do
+        patch :change_availability
+      end
+    end
+  end
+
   root to: 'vendors#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

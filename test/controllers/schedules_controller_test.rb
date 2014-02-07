@@ -36,5 +36,4 @@ class SchedulesControllerTest < ActionController::TestCase
       json["schedule"]["sold_out"].must_equal true
     end
   end
-
 end
