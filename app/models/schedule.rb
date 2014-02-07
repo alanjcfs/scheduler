@@ -3,7 +3,8 @@ class Schedule < ActiveRecord::Base
   has_many :bookings
 
   validate :reserved_under_or_equal_quantity
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :price, presence: true, numericality: { only_integer: true,
+                                                    greater_than_or_equal_to: 0 }
 
   def increment_reserved(number_of_travelers)
     self.reserved += number_of_travelers
