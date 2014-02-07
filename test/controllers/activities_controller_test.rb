@@ -19,4 +19,10 @@ class ActivitiesControllerTest < ActionController::TestCase
     get :index, date_start: Date.parse("2014-01-01"), date_end: Date.parse("2014-01-31")
     assert assigns(:activities)
   end
+
+  test "obtaining a list of activities in a day should be fine" do
+    date = Date.parse("2014-01-01")
+    get :index, date_start: date, date_end: date
+    assert assigns(:activities)
+  end
 end
