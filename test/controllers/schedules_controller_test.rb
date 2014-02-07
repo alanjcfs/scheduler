@@ -36,4 +36,16 @@ class SchedulesControllerTest < ActionController::TestCase
       json["schedule"]["sold_out"].must_equal true
     end
   end
+
+  describe "Unavailable Schedule" do
+    before do
+      @schedule = create(:unavailable_schedule)
+    end
+
+    test "GET show on unavailable schedule" do
+      get :show, id: @schedule.id
+      json = JSON.parse(response.body)
+      json["schedule"]["available"].must_equal false
+    end
+  end
 end

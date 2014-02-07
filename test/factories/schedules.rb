@@ -9,5 +9,9 @@ FactoryGirl.define do
     factory :sold_out_schedule do
       reserved  8
     end
+
+    factory :unavailable_schedule do
+      available false
+    end
   end
 end

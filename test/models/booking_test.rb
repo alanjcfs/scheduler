@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class BookingTest < ActiveSupport::TestCase
-  describe "associations" do
+  describe "Associations" do
     before do
       @booking = Booking.new
     end
@@ -15,7 +15,7 @@ class BookingTest < ActiveSupport::TestCase
     end
   end
 
-  describe "creating a booking with travelers" do
+  describe "Creating a booking with travelers" do
     test "booking can be created with travelers" do
       booking = Booking.new(schedule_id: create(:schedule).id)
       booking.travelers.build(name: "Johnny")
