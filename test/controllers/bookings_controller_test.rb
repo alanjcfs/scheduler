@@ -3,7 +3,8 @@ require 'test_helper'
 class BookingsControllerTest < ActionController::TestCase
   describe "Creating a booking" do
     before do
-      post :create, booking: { schedule_id: schedules(:surfing) },
+      schedule = create(:schedule)
+      post :create, booking: { schedule_id: schedule.id },
         travelers: [{ name: "Adam" }, { name: "Jason" }, { name: "Jennifer" }]
     end
 
@@ -14,7 +15,7 @@ class BookingsControllerTest < ActionController::TestCase
       json["booking"].wont_be_empty
       json["booking"]["travelers"].wont_be_empty
       names = %w[Adam Jason Jennifer]
-      puts json
+      # puts json
       json["booking"]["travelers"].each do |traveler|
         assert names.include?(traveler["name"]), "Adam Jason or Jennifer should be in the name"
       end

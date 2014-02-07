@@ -11,10 +11,12 @@ class VendorsControllerTest < ActionController::TestCase
   end
 
   test "get vendor#show" do
-    get :show, {format: :json, id: vendors(:joe).id}
+    vendor = create(:vendor)
+
+    get :show, {format: :json, id: vendor.id}
     body = JSON.parse(response.body)
     assert body['vendor'], "Response body must have 'vendor' attribute"
-    assert body['vendor']['id'] == vendors(:joe).id, "Response body must have id attribute"
+    assert body['vendor']['id'] == vendor.id, "Response body must have id attribute"
     assert_response :success
   end
 end

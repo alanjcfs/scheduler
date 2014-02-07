@@ -1,15 +1,20 @@
 require 'test_helper'
 
 class SchedulesControllerTest < ActionController::TestCase
+  before do
+    @activity = create(:activity)
+    @schedule = create(:schedule)
+  end
+
   test "GET index" do
-    get :index, activity_id: activities(:joe)
+    get :index, activity_id: @activity.id
     assert_response :success
     assert assigns(:activity)
     assert assigns(:schedules)
   end
 
   test "GET show" do
-    get :show, activity_id: activities(:joe), id: schedules(:surfing)
+    get :show, id: @schedule.id
     assert_response :success
     assert assigns(:schedule)
     json = JSON.parse(response.body)
