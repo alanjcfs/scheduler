@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(version: 20140203202919) do
     t.date     "date"
     t.time     "time_start"
     t.time     "time_end"
-    t.integer  "quantity",                null: false
-    t.integer  "reserved",    default: 0, null: false
+    t.integer  "quantity",                   null: false
+    t.integer  "reserved",    default: 0,    null: false
     t.integer  "activity_id"
+    t.boolean  "available",   default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

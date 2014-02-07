@@ -7,6 +7,7 @@ class CreateSchedules < ActiveRecord::Migration
       t.integer :quantity, null: false
       t.integer :reserved, default: 0, null: false
       t.references :activity
+      t.boolean :available, default: true
 
       t.timestamps
     end
