@@ -5,7 +5,6 @@ class Schedule < ActiveRecord::Base
   validate :reserved_under_or_equal_quantity
 
   def increment_reserved(number_of_travelers)
-    self.reserved ||= 0
     self.reserved += number_of_travelers
     self.save!
   end

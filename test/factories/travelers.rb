@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :vendor do
+  factory :traveler do
     name "Dana"
     booking
   end
