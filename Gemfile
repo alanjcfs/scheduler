@@ -36,6 +36,7 @@ gem 'active_model_serializers'
 group :test do
   gem 'guard-minitest'
   gem 'minitest-spec-rails'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password

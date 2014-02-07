@@ -42,6 +42,11 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
     ffi (1.9.3)
     formatador (0.2.4)
     guard (2.2.5)
@@ -144,6 +149,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   coffee-rails (~> 4.0.0)
+  factory_girl_rails
   guard-minitest
   jbuilder (~> 1.2)
   jquery-rails

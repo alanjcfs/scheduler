@@ -1,0 +1,9 @@
+FactoryGirl.define do
+  factory :schedule do
+    date        Date.parse("2014-01-15")
+    time_start  Time.parse("12:00:00")
+    time_end    Time.parse("12:00:00")
+    quantity    8
+    activity
+  end
+end
