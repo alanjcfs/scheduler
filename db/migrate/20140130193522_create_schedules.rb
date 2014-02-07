@@ -4,8 +4,8 @@ class CreateSchedules < ActiveRecord::Migration
       t.date :date
       t.time :time_start
       t.time :time_end
-      t.integer :quantity
-      t.integer :reserved
+      t.integer :quantity, null: false
+      t.integer :reserved, default: 0, null: false
       t.references :activity
 
       t.timestamps
