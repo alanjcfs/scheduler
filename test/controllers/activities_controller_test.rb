@@ -1,28 +1,22 @@
 require 'test_helper'
 
 class ActivitiesControllerTest < ActionController::TestCase
-  test "creating an activity" do
-    assert_difference('Activity.count') do
-      post :create, activity: {name: "Surfing"}
+  describe "Getting a list of activities" do
+    before do
+      create(:schedule)
     end
 
-    assert assigns(:activity)
-  end
-
-  test "creating an activity without name must fail" do
-    assert_raises ActionController::ParameterMissing do
-      post :create, activity: {}
+    test "obtaining a list of activities" do
+      get :index, date_start: Date.parse("2014-01-01"), date_end: Date.parse("2014-01-31")
+      assert assigns(:activities)
+      json = JSON.parse(response.body)
+      json["activities"].size.must_equal 1
     end
-  end
 
-  test "obtaining a list of activities" do
-    get :index, date_start: Date.parse("2014-01-01"), date_end: Date.parse("2014-01-31")
-    assert assigns(:activities)
-  end
-
-  test "obtaining a list of activities in a day should be fine" do
-    date = Date.parse("2014-01-01")
-    get :index, date_start: date, date_end: date
-    assert assigns(:activities)
+    test "obtaining a list of activities in a day should be fine" do
+      date = Date.parse("2014-01-01")
+      get :index, date_start: date, date_end: date
+      assert assigns(:activities)
+    end
   end
 end

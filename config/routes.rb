@@ -1,20 +1,22 @@
 Scheduler::Application.routes.draw do
-  resources :vendors
+  resources :vendors, only: [:create, :show]
 
   concern :schedulable do
     resources :schedules, only: [:index, :show]
   end
 
-  resources :activities, concerns: :schedulable, shallow: true
+  resources :activities, concerns: :schedulable, shallow: true, only: [:show, :index]
 
   resources :bookings, only: [:create]
 
   namespace :admin do
-    resources :schedules, only: :none do
+    resources :schedules, only: [:create] do
       member do
         patch :change_availability
       end
     end
+
+    resources :activities, only: :create
   end
 
   root to: 'vendors#index'
