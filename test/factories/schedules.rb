@@ -5,5 +5,9 @@ FactoryGirl.define do
     time_end    Time.parse("12:00:00")
     quantity    8
     activity
+
+    factory :sold_out_schedule do
+      reserved  8
+    end
   end
 end
