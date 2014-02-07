@@ -8,5 +8,7 @@ class ScheduleTest < ActiveSupport::TestCase
     activity   = create(:activity)
 
     Schedule.new(date: date, time_start: time_start, time_end: time_end, quantity: 8, activity_id: activity).valid?.must_equal true
+
+    Schedule.new(date: date, time_start: time_start, time_end: time_end, quantity: 8, activity_id: activity, price: -1200).valid?.must_equal false
   end
 end
