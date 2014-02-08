@@ -5,6 +5,7 @@ class Schedule < ActiveRecord::Base
   validate :reserved_under_or_equal_quantity
   validates :price, presence: true, numericality: { only_integer: true,
                                                     greater_than_or_equal_to: 0 }
+  validates_presence_of :time_start, :time_end, :date, :activity_id
 
   def increment_reserved(number_of_travelers)
     self.reserved += number_of_travelers
