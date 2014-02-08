@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :booking do
-    name "Surfing Lesson"
+    schedule
   end
 end

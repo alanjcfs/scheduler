@@ -12,6 +12,10 @@ class Schedule < ActiveRecord::Base
     self.save!
   end
 
+  def available_to_buy?
+    available? and reserved < quantity
+  end
+
   private
   def reserved_under_or_equal_quantity
     if reserved > quantity

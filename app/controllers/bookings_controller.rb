@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
   respond_to :json
 
   def create
-    @schedule_booker = ScheduleBooker.new(permitted_booking, permitted_travelers)
+    @schedule_booker = ScheduleBooker.new(booking: permitted_booking,
+                                          travelers: permitted_travelers)
 
     if @schedule_booker.save
       render json: @schedule_booker.booking
