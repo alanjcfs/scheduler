@@ -12,33 +12,24 @@ be used, but hasn't been added.
 API Documentation
 -----------------
 
-API covering the following cases:
-
-    Data model for activities -- no need to go crazy, it can be really simple and just have an Activity name and a Vendor name (e.g. activity = “surf lesson” and vendor = “Joe the Surf Instructor”)
-    Ability to add and remove activity availability
-    API ability to check activity day availability over a range (e.g. what days are available between 10/10/13 and 11/10/13?)
-    API ability to check activity availability within a day (e.g. what times are available on 10/15/13?)
-    API ability to create bookings against activities with availability (= reduce remaining availability)
-    Automated tests hitting the API for all the different cases
-
 ### Vendors actions
 
-1. List of Vendors
+To get Vendors:
 
-  GET "/vendors", the response will be
+GET "/vendors", the response will be
 
     { "vendors": [ list_of_vendors ] }
 
-2. Show Vendor
+To show a Vendor:
 
-  GET "/vendors/123/show", the response will be
+GET "/vendors/123/show", the response will be
 
     { "vendor": [{"id": 123,
     "name": "Joe the Surf Instructor" }]}
 
-3. Create Vendor
+Create a Vendor:
 
-  POST to "/vendors" with
+POST to "/vendors" with
 
     { "vendor": { "name": "Dana" } }
 
@@ -52,7 +43,7 @@ POST to "/admin/activities" with
 
     { "activity": { "name": "Surfing" }}
 
-Getting a list of activities:
+To get Activities:
 
 GET "/activities?date\_start=2014-01-01&date\_end=2014-01-31" to get all
 activities in the month of January.
@@ -85,20 +76,22 @@ parameter.
 
 User tasks
 
-1. To obtain a list of schedules for an activity:
+To get Schedules for an activity:
 
     GET "/activities/123/schedules"
 
-2. To obtain a schedule information (the nesting is shallow, there is always
+To obtain a schedule information (the nesting is shallow, there is always
    one unique schedule so we don't need to have the activity\_id, but we do
    include the activity information):
 
     GET "/schedules/123"
 
-3. Sometimes a schedule is not available, but can be viewed. To know whether
+Sometimes a schedule is not available, but can be viewed. To know whether
    it is available or not, check `response["schedule"]["available"]`.
 
 ### Creating a booking
+
+To create a Booking:
 
 POST to "/bookings" with
 
