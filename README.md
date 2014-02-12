@@ -26,12 +26,14 @@ API covering the following cases:
 1. List of Vendors
 
   GET "/vendors", the response will be
+
     { "vendors": [ list_of_vendors ] }
 
 2. Show Vendor
 
   GET "/vendors/123/show", the response will be
-    `{ "vendor": [{"id": 123,
+
+    { "vendor": [{"id": 123,
     "name": "Joe the Surf Instructor" }]}
 
 3. Create Vendor
