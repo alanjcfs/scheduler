@@ -5,7 +5,8 @@ class Activity < ActiveRecord::Base
 
   validates :name, presence: true
 
-  scope :list_of_activities, lambda { |params|
+  scope :list_of_activities, lambda { |params=nil|
+    return all unless params
     joins(:schedules).where(schedules: {date: params[:date_start]..params[:date_end]})
   }
 end

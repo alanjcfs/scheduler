@@ -16,7 +16,8 @@ class VendorsController < ApplicationController
   end
 
   def index
-    render json: {}
+    @vendors = Vendor.all
+    render json: @vendors
   end
 
   private

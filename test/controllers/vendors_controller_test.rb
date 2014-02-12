@@ -19,4 +19,14 @@ class VendorsControllerTest < ActionController::TestCase
     assert body['vendor']['id'] == vendor.id, "Response body must have id attribute"
     assert_response :success
   end
+
+  test "get vendors#index" do
+    create(:vendor)
+
+    get :index
+    assert assigns(:vendors)
+    body = JSON.parse(response.body)
+    body.empty?.must_equal false
+    body["vendors"].size.must_equal 1
+  end
 end
